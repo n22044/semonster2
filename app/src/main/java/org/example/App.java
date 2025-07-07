@@ -10,5 +10,8 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        Monster m = Monster.summonMonster(4); // ドラゴン → ドラゴンマスターに進化
+        System.out.println(m);
     }
+
 }

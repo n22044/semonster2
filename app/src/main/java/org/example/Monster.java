@@ -1,38 +1,48 @@
 package org.example;
 
 public class Monster {
-    private String name;
-    private int rare;
+  String name;
+  int rare;
 
-    public Monster(String name, int rare) {
-        this.name = name;
-        this.rare = rare;
-        evolve(); // rareが高ければ進化させる
+  public Monster(String name, int rare) {
+    // レア度が3以上なら進化
+    if (rare >= 3) {
+      this.name = evolveName(name);
+    } else {
+      this.name = name;
     }
+    this.rare = rare;
+  }
 
-    public void evolve() {
-        if (rare >= 3) {
-            this.name = "進化した" + this.name;
-        }
+  // 召喚メソッド
+  public static Monster summonMonster(int rare) {
+    String[] monsterNames = {"デュラハン", "スライム", "ゴブリン", "オーク", "ドラゴン"};
+    if (rare < 0 || rare >= monsterNames.length) {
+      throw new IllegalArgumentException("レア度が不正です: " + rare);
     }
+    return new Monster(monsterNames[rare], rare);
+  }
 
-    @Override
-    public String toString() {
-        return this.name + ":レア度[" + this.rare + "]";
+  // 進化名へ変換
+  private String evolveName(String name) {
+    switch (name) {
+      case "デュラハン":
+        return "ヘッドレスナイト";
+      case "スライム":
+        return "キングスライム";
+      case "ゴブリン":
+        return "ゴブリンロード";
+      case "オーク":
+        return "オークキング";
+      case "ドラゴン":
+        return "ドラゴンマスター";
+      default:
+        return name + "（進化）";
     }
+  }
 
-    public static Monster summonMonster(int n) {
-        String[] names = { "スライム", "デュラハン", "ゴーレム", "ドラゴン", "ユニコーン" };
-        int index = Math.max(0, Math.min(n, names.length - 1));
-        return new Monster(names[index], n);
-    }
-
-    // getter（テスト用に必要なら）
-    public String getName() {
-        return name;
-    }
-
-    public int getRare() {
-        return rare;
-    }
+  @Override
+  public String toString() {
+    return this.name + ":レア度[" + this.rare + "]";
+  }
 }
