@@ -18,4 +18,10 @@ public class PlayerTest {
         assertTrue(output.startsWith("Deck:user"));
         assertTrue(output.contains("レア度["));
     }
+
+    public static void main(String[] args) {
+        Player p = new Player("Taro");
+        System.out.println(p); // toStringでHP表示を確認
+    }
+
 }
