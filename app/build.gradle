@@ -34,3 +34,8 @@ application {
     // Define the main class for the application.
     mainClass = 'org.example.App'
 }
+
+// ✅ 日本語対応のための文字コード設定
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
