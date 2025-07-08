@@ -31,36 +31,3 @@ public class Player {
     }
 }
 
-
-public class Player {
-    private String name;
-    private int hp; // HPを追加
-    private LinkedList<Monster> monsters; // モンスター保持用（任意）
-
-    public Player(String name) {
-        this.name = name;
-        this.hp = 100; // 初期HP
-        this.monsters = new LinkedList<>();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getHp() {
-        return hp;
-    }
-
-    public void setHp(int hp) {
-        this.hp = hp;
-    }
-
-    public LinkedList<Monster> getMonsters() {
-        return monsters;
-    }
-
-    @Override
-    public String toString() {
-        return "Player{name='" + name + "', hp=" + hp + ", monsters=" + monsters + "}";
-    }
-}
