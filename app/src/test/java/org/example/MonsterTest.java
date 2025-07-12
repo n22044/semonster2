@@ -26,5 +26,10 @@ public class MonsterTest {
   @Test(expected = IllegalArgumentException.class)
   public void testInvalidRarity() {
     Monster.summonMonster(10); // 存在しないレア度
+
+  @Test
+  public void testCnstructorRarityZero() {
+    Monster m = new Monster("デュラハン", 0);
+    assertEquals("デュラハン:レア度[0]", m.toString());
   }
 }
